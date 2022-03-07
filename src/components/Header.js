@@ -1,5 +1,6 @@
 import React from 'react';
 import { getUser } from '../services/userAPI';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor() {
@@ -33,6 +34,12 @@ class Header extends React.Component {
         : (
           <header data-testid="header-component">
             <h2 data-testid="header-user-name">{ user }</h2>
+            <Link to="/search" data-testid="link-to-search">Search</Link>
+            <br />
+            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
+            <br />
+            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+            <br />
           </header>
         )
     );
