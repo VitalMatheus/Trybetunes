@@ -33,7 +33,10 @@ class Header extends React.Component {
       isLoading ? <h3>Carregando...</h3>
         : (
           <header data-testid="header-component">
-            <h2 data-testid="header-user-name">{ user }</h2>
+            <div className="header-container">
+              <p>TrybeTunes </p>
+              <h2 data-testid="header-user-name">{ user }</h2>
+            </div>
             <Link to="/search" data-testid="link-to-search">Search</Link>
             <br />
             <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
