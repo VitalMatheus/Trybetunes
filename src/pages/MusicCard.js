@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 
 class MusicCard extends React.Component {
@@ -23,6 +23,7 @@ class MusicCard extends React.Component {
 
     const obj = await getMusics(target.id);
     const addMusic = await addSong(obj);
+    await getFavoriteSongs(addMusic);
 
     if (addMusic) {
       this.setState({
