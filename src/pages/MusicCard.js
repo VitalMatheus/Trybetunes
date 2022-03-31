@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 
@@ -15,21 +14,31 @@ class MusicCard extends React.Component {
   }
 
   handleCheck = async ({ target }) => {
-    // const { trackId } = this.props;
     this.setState({
-      checked: target.checked,
       loading: true,
+      checked: target.checked,
     });
 
     const obj = await getMusics(target.id);
-    const addMusic = await addSong(obj);
-    await getFavoriteSongs(addMusic);
+    await addSong(obj[0]);
+    const xablau = await getFavoriteSongs();
+    console.log(xablau);
 
-    if (addMusic) {
+    if (xablau) {
       this.setState({
         loading: false,
       });
     }
+  }
+
+  componentDidMount = async () => {
+    const { music: { trackId } } = this.props;
+    const xablau = await getFavoriteSongs();
+    const trackIDS = xablau.map((id) => id.trackId);
+
+    this.setState({
+      checked: trackIDS.some((song) => song === trackId),
+    });
   }
 
   render() {
@@ -51,7 +60,7 @@ class MusicCard extends React.Component {
               Favorita
               <input
                 type="checkbox"
-                id="favorites"
+                id={ trackId }
                 checked={ checked }
                 onChange={ this.handleCheck }
                 data-testid={ `checkbox-music-${trackId}` }

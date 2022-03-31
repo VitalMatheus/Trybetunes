@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
@@ -26,7 +25,7 @@ class Album extends Component {
       musics: response,
       loading: false,
     });
-    console.log(response);
+    // console.log(response);
   }
 
   renderAlbum = () => {
