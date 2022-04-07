@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 
 class MusicCard extends React.Component {
@@ -20,7 +20,9 @@ class MusicCard extends React.Component {
     });
 
     const obj = await getMusics(target.id);
-    await addSong(obj[0]);
+    this.checked = target.checked
+      ? await removeSong(obj[0])
+      : await addSong(obj[0]);
     const xablau = await getFavoriteSongs();
     console.log(xablau);
 
