@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('http://www.meupositivo.com.br/doseujeito/wp-content/uploads/2021/03/historia-da-musica0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
@@ -18,9 +21,131 @@ code {
   justify-content: center;
 }
 
+.general-login {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 12%;
+}
+
+.page-login {
+  border: 3px solid white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+  height: 40vh;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .header-container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
   /* background-color: red; */
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.header-buttons {
+  text-decoration: none;
+  font-size: 22px;
+  background-color: rgb(0, 255, 0);
+  /* color: white; */
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 0 0 15px black;
+  width: 33%;
+  height: 10vh;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; 
+}
+
+.header-buttons, a:link, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.header-buttons:hover {
+  text-decoration: none;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  /* color: white; */
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 0 0 15px black;
+}
+
+.search-musics {
+  width: 80%;
+  margin: auto;
+}
+
+#input-music {
+  width: 70vw;
+  border: none;
+  border-radius: 10px;
+  height: 25px;
+  text-align: center;
+}
+
+#search-button {
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.albuns-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.album-container {
+  border: 1px solid black;
+  box-shadow: 0 0 15px;
+  background-color:#4d8fec;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 25%;
+  height: 50vh;
+}
+
+.album-infos {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.album-container:hover {
+  background-color: #2f9bea;
 }

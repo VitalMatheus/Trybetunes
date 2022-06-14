@@ -42,7 +42,7 @@ class Album extends Component {
   render() {
     const { loading, musics } = this.state;
     return (
-      <div data-testid="page-album">
+      <div>
         <Header />
         { loading ? null : this.renderAlbum() }
         { musics.map((elem, index) => {

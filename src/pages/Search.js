@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
@@ -68,15 +67,19 @@ class Search extends React.Component {
     }
     return (
       artist.map((elem) => (
-        <Link
-          key={ elem.collectionId }
-          to={ `/album/${elem.collectionId}` }
-          data-testid={ `link-to-album-${elem.collectionId}` }
-        >
-          <img src={ elem.artworkUrl100 } alt={ elem.artistName } />
-          { elem.artistName }
-          { elem.collectionName }
-        </Link>
+        <div key={ elem.collectionId } className="album-container">
+          <Link
+            key={ elem.collectionId }
+            to={ `/album/${elem.collectionId}` }
+            data-testid={ `link-to-album-${elem.collectionId}` }
+          >
+            <div className="album-infos">
+              <img src={ elem.artworkUrl100 } alt={ elem.artistName } />
+              <h3>{ elem.artistName }</h3>
+              <p>{ elem.collectionName }</p>
+            </div>
+          </Link>
+        </div>
       ))
     );
   }
@@ -89,9 +92,10 @@ class Search extends React.Component {
         { isLoading ? <h2>Carregando...</h2>
           : (
             <div>
-              <form>
+              <form className="search-musics">
                 <input
                   type="text"
+                  id="input-music"
                   value={ value }
                   placeholder="Procurar"
                   onChange={ this.handleChange }
@@ -99,6 +103,7 @@ class Search extends React.Component {
                 />
                 <button
                   type="submit"
+                  id="search-button"
                   disabled={ disabled }
                   onClick={ this.handleClick }
                   data-testid="search-artist-button"
@@ -116,7 +121,9 @@ class Search extends React.Component {
                         {' '}
                         { name }
                       </h2>
-                      {this.renderAlbum()}
+                      <div className="albuns-collection">
+                        {this.renderAlbum()}
+                      </div>
                     </div>
                   )
                   : null }

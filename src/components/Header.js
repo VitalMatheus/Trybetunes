@@ -1,4 +1,5 @@
 import React from 'react';
+import { GiHeadphones } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 
@@ -34,15 +35,31 @@ class Header extends React.Component {
         : (
           <header data-testid="header-component">
             <div className="header-container">
-              <p>TrybeTunes </p>
-              <h2 data-testid="header-user-name">{ user }</h2>
+              <h1>
+                Trybe
+                {' '}
+                <GiHeadphones />
+                {' '}
+                Tunes
+                {' '}
+              </h1>
+              <h2 data-testid="header-user-name">
+                Usuário:
+                {' '}
+                { user }
+              </h2>
             </div>
-            <Link to="/search" data-testid="link-to-search">Search</Link>
-            <br />
-            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-            <br />
-            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-            <br />
+            <div className="nav-bar">
+              <div className="header-buttons">
+                <Link to="/search" data-testid="link-to-search">Search</Link>
+              </div>
+              <div className="header-buttons">
+                <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
+              </div>
+              <div className="header-buttons">
+                <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+              </div>
+            </div>
           </header>
         )
     );
